@@ -1,0 +1,42 @@
+.post-container {
+    font-family: 'Roboto', sans-serif;
+    .op-username {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        img {
+            width: 36px;
+            height: auto;
+            border-radius: 100%;
+            margin: 15px;
+        }
+    }
+    .interaction-stats {
+        margin: 10px;
+        i {
+            margin-right: 15px;
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+        }
+        strong {
+            font-weight: 700;
+        }
+    }
+    .timestamp {
+        color: grey;
+        font-size: 0.8rem;
+        margin: 10px;
+    }
+    .comment-input {
+        border-top: 1px solid grey;
+        form {
+            input {
+                border: none;
+                padding-top: 20px;
+                margin-bottom: 20px;
+                margin-left: 10px;
+                width: 90%;
+            }
+        }
+    }
+}

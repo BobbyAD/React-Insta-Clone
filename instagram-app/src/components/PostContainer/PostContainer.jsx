@@ -4,6 +4,7 @@ import User from './Components/User';
 import CommentSection from '../CommentSection/CommentSection';
 import InteractionStats from './Components/InteractionStats';
 import CommentField from './Components/CommentField';
+import './PostContainer.scss';
 
 class PostContainer extends React.Component {
     constructor(props) {
@@ -31,7 +32,9 @@ class PostContainer extends React.Component {
                 <Image img={this.props.post.imageUrl} />
                 <InteractionStats likes={this.state.likes} />
                 <CommentSection comments={this.state.comments} />
-                {this.props.post.timestamp}
+                <div className="timestamp">
+                    {this.props.post.timestamp}
+                </div>
                 <CommentField addComment={this.addComment}/>
             </div>
         )
