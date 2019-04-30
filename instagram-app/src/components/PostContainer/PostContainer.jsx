@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Image from './Components/Image';
 import User from './Components/User';
 import CommentSection from '../CommentSection/CommentSection';
@@ -40,5 +41,16 @@ class PostContainer extends React.Component {
         )
     }
 }
+
+PostContainer.propTypes = {
+    post: PropTypes.shape({
+        comments: PropTypes.arrayOf(PropTypes.object),
+        likes: PropTypes.number,
+        imageUrl: PropTypes.string,
+        timestamp: PropTypes.string,
+        username: PropTypes.string,
+        thumbnailUrl: PropTypes.string
+    })
+};
 
 export default PostContainer;
