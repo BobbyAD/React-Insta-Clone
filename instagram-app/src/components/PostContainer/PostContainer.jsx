@@ -3,6 +3,7 @@ import Image from './Components/Image';
 import User from './Components/User';
 import CommentSection from '../CommentSection/CommentSection';
 import InteractionStats from './Components/InteractionStats';
+import CommentField from './Components/CommentField';
 
 class PostContainer extends React.Component {
     constructor(props) {
@@ -13,8 +14,14 @@ class PostContainer extends React.Component {
         }
     }
 
-    addComment() {
-        
+    addComment = (comment) => {
+        const newComment = {
+            username: "testUser",
+            text: comment
+        }
+        this.setState({
+            comments: [...this.state.comments, newComment]
+        })
     }
 
     render() {
@@ -25,6 +32,7 @@ class PostContainer extends React.Component {
                 <InteractionStats likes={this.state.likes} />
                 <CommentSection comments={this.state.comments} />
                 {this.props.post.timestamp}
+                <CommentField addComment={this.addComment}/>
             </div>
         )
     }

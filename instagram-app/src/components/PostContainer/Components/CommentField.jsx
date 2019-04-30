@@ -1,8 +1,8 @@
 import React from 'react';
 
 class CommentField extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             input: ""
         }
@@ -14,6 +14,7 @@ class CommentField extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        this.props.addComment(this.state.input);
         this.setState({ input: "" });
     }
 
