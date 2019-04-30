@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
+import Fuse from 'fuse.js';
 import './App.scss';
 
 //Dummy Data
@@ -20,19 +21,49 @@ class App extends React.Component {
         })
     }
 
-    search = (input) => {
-        var searchArray = this.state.posts.filter(element => {
-            if (element.username.toLowerCase() === input.toLowerCase()) {
-                return element;
-            }
-            else {
-                return null;
-            }
-        })
+    // search = (input) => {
+    //     var searchArray = this.state.posts.filter(element => {
+    //         if (element.username.toLowerCase() === input.toLowerCase()) {
+    //             return element;
+    //         }
+    //         else {
+    //             return null;
+    //         }
+    //     })
 
-        if (searchArray.length > 0) {
+    //     if (searchArray.length > 0) {
+    //         this.setState({
+    //             posts: searchArray
+    //         })
+    //     }
+
+    //     else {
+    //         this.setState({
+    //             posts: dummyData
+    //         })
+    //         alert(`Could not find "${input}"`);
+    //     }
+    // }
+
+    //Fuse.js
+    search = (input) => {
+        var options = {
+            shouldSort: true,
+            threshold: 0.2,
+            location: 0,
+            distance: 100,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            keys: [
+              "username"
+            ]
+          };
+        var fuse = new Fuse(dummyData, options); // "list" is the item array
+        var result = fuse.search(input);
+
+        if (result.length > 0) {
             this.setState({
-                posts: searchArray
+                posts: result
             })
         }
 
