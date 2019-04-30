@@ -14,7 +14,8 @@ class SearchField extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.setState({ input: ""});
+        this.props.search(this.state.search);
+        this.setState({ search: ""});
     }
 
     render() {

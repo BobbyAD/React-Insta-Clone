@@ -26,12 +26,19 @@ class PostContainer extends React.Component {
         })
     }
 
+    addLike = event => {
+        event.preventDefault();
+        this.setState({
+            likes: (this.state.likes+1)
+        })
+    }
+
     render() {
         return(
             <div className="post-container">
                 <User name={this.props.post.username} thumb={this.props.post.thumbnailUrl}/>
                 <Image img={this.props.post.imageUrl} />
-                <InteractionStats likes={this.state.likes} />
+                <InteractionStats likes={this.state.likes} addLike={this.addLike} />
                 <CommentSection comments={this.state.comments} />
                 <div className="timestamp">
                     {this.props.post.timestamp}

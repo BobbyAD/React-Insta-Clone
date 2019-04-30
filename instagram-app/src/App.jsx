@@ -10,14 +10,44 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            posts: dummyData,
+            posts: [],
+        }
+    }
+
+    componentDidMount() {
+        this.setState({
+            posts: dummyData
+        })
+    }
+
+    search = (input) => {
+        var searchArray = this.state.posts.filter(element => {
+            if (element.username.toLowerCase() === input.toLowerCase()) {
+                return element;
+            }
+            else {
+                return null;
+            }
+        })
+
+        if (searchArray.length > 0) {
+            this.setState({
+                posts: searchArray
+            })
+        }
+
+        else {
+            this.setState({
+                posts: dummyData
+            })
+            alert(`Could not find "${input}"`);
         }
     }
 
     render() {
         return (
             <div className="App">
-                <SearchBar />
+                <SearchBar search={this.search}/>
                 <div className="post-list">
                     {this.state.posts.map(element => (
                         <PostContainer post={element} key={element.timestamp} />

@@ -13,6 +13,9 @@
     }
     .interaction-stats {
         margin: 10px;
+        .interact-icons {
+            display: flex;
+        }
         i {
             margin-right: 15px;
             margin-bottom: 10px;
