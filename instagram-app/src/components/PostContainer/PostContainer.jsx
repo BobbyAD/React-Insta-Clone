@@ -18,7 +18,7 @@ class PostContainer extends React.Component {
 
     addComment = (comment) => {
         const newComment = {
-            username: "testUser",
+            username: localStorage.getItem('username'),
             text: comment
         }
         this.setState({
