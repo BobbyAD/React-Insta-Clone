@@ -3,10 +3,13 @@ import React from 'react';
 // import PostContainer from './components/PostContainer/PostContainer';
 // import Fuse from 'fuse.js';
 import PostsPage from './components/PostContainer/PostsPage'
+import withAuthenticate from './components/Authentication/withAuthenticate';
 import './App.scss';
 
 //Dummy Data
 // import dummyData from './dummy-data';
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
 
 class App extends React.Component {
     constructor() {
@@ -61,7 +64,7 @@ class App extends React.Component {
                         <PostContainer post={element} key={element.timestamp} />
                     ))}
                 </div> */}
-                <PostsPage />
+                <ComponentFromWithAuthenticate />
             </div>
         )
     }
