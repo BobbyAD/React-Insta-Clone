@@ -1,4 +1,5 @@
 import React from 'react';
+import './Login.scss';
 
 class Login extends React.Component {
     constructor() {
@@ -27,6 +28,7 @@ class Login extends React.Component {
         return (
             <div className="login">
                 <form onSubmit={this.login}>
+                    <h1>Login</h1>
                     <input 
                         type="text"
                         name="username"
@@ -43,7 +45,8 @@ class Login extends React.Component {
                     />
                     <input 
                         type="submit"
-                        value="submit"
+                        value="LOGIN"
+                        className="submit-button"
                     />
                 </form>
             </div>

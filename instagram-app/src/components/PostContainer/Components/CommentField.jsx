@@ -1,4 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const CommentInput = styled.div`
+    border-top: 1px solid grey;
+`
+
+const StyledInput = styled.input`
+    border: none;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    width: 90%;
+`
 
 class CommentField extends React.Component {
     constructor(props) {
@@ -20,9 +33,9 @@ class CommentField extends React.Component {
 
     render() {
         return (
-            <div className="comment-input">
+            <CommentInput>
                 <form onSubmit={this.handleSubmit}>
-                    <input 
+                    <StyledInput 
                         type="text"
                         name="input"
                         placeholder="Add a comment..."
@@ -30,7 +43,7 @@ class CommentField extends React.Component {
                         onChange={this.onUpdate}
                     />
                 </form>
-            </div>
+            </CommentInput>
         )
     }
 }

@@ -1,11 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Image from './Components/Image';
 import User from './Components/User';
 import CommentSection from '../CommentSection/CommentSection';
 import InteractionStats from './Components/InteractionStats';
 import CommentField from './Components/CommentField';
-import './PostContainer.scss';
+// import './PostContainer.scss';
+
+const PostContainerDiv = styled.div`
+    font-family: 'Roboto', sans-serif;
+`
+
+const TimestampDiv = styled.div`
+    color: grey;
+    font-size: 0.8rem;
+    margin: 10px;
+`
 
 class PostContainer extends React.Component {
     constructor(props) {
@@ -35,16 +46,16 @@ class PostContainer extends React.Component {
 
     render() {
         return(
-            <div className="post-container">
+            <PostContainerDiv>
                 <User name={this.props.post.username} thumb={this.props.post.thumbnailUrl}/>
                 <Image img={this.props.post.imageUrl} />
                 <InteractionStats likes={this.state.likes} addLike={this.addLike} />
                 <CommentSection comments={this.state.comments} />
-                <div className="timestamp">
+                <TimestampDiv>
                     {this.props.post.timestamp}
-                </div>
+                </TimestampDiv>
                 <CommentField addComment={this.addComment}/>
-            </div>
+            </PostContainerDiv>
         )
     }
 }

@@ -1,12 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledNavDiv = styled.div`
+    margin: 0 10px;
+`
+
+const StyledIcon = styled.i`
+    padding: 0 10px;
+`
 
 const Navigation = () => {
     return(
-        <div className="nav-buttons">
-            <i className="far fa-compass"></i>
-            <i className="far fa-heart"></i>
-            <i className="far fa-user"></i>
-        </div>
+        <StyledNavDiv>
+            <StyledIcon className="far fa-compass"></StyledIcon>
+            <StyledIcon className="far fa-heart"></StyledIcon>
+            <StyledIcon className="far fa-user"></StyledIcon>
+        </StyledNavDiv>
     )
 }
 

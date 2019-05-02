@@ -1,4 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledInput = styled.input`
+    text-align: center;
+    padding: 4px 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgb(245,247,250);
+`
 
 class SearchField extends React.Component {
     constructor(props) {
@@ -22,7 +31,7 @@ class SearchField extends React.Component {
         return(
             <div className="search">
                 <form onSubmit={this.handleSubmit}>
-                    <input 
+                    <StyledInput 
                         type="text"
                         name="search"
                         placeholder="🔎︎ Search"

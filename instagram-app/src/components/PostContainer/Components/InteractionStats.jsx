@@ -1,14 +1,33 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StatsDiv = styled.div`
+    margin: 10px;
+`
+
+const InteractIcons = styled.div`
+    display: flex;
+`
+
+const StyledIcons = styled.i`
+    margin-right: 15px;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+`
+
+const StyledStrong = styled.strong`
+    font-weight: 700;
+`
 
 const InteractionStats = props => {
     return(
-        <div className="interaction-stats">
-            <div className="interact-icons">
-                <div onClick={props.addLike}><i className="far fa-heart"></i></div>
-                <i className="far fa-comment"></i>
-            </div>
-            <strong>{props.likes} likes</strong>
-        </div>
+        <StatsDiv>
+            <InteractIcons>
+                <div onClick={props.addLike}><StyledIcons className="far fa-heart"></StyledIcons></div>
+                <StyledIcons className="far fa-comment"></StyledIcons>
+            </InteractIcons>
+            <StyledStrong>{props.likes} likes</StyledStrong>
+        </StatsDiv>
     )
 }
 
